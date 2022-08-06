@@ -10,9 +10,11 @@ export class ActivityService {
 
   constructor(private httpService: HttpService) { }
 
-  uploadActivities(file: FormData): Observable<Activity>
+  uploadActivities(file: File): Observable<Activity>
   {
-    return this.httpService.post<Activity>('upload', file);
+    const formData = new FormData();
+    formData.append("file", file, file.name);
+    return this.httpService.post<Activity>('upload', formData);
   }
 
   getActivities(): Observable<Activity[]>

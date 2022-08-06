@@ -1,1 +1,32 @@
-<p>task-manager works!</p>
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Client</th>
+        <th>Start Date</th>
+        <th>Duration</th>
+        <th>Task 1</th>
+        <th>Task 2</th>
+        <th>Task 3</th>
+        <th>Task 4</th>
+        <th>Task 5</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activities">
+        <td>{{activity.id}}</td>
+        <td>{{activity.description}}</td>
+        <td>{{activity.startDate}}</td>
+        <td>{{activity.client}}</td>
+        <td>{{activity.duration}}</td>
+        <td>{{activity.task1}}</td>
+        <td>{{activity.task2}}</td>
+        <td>{{activity.task3}}</td>
+        <td>{{activity.task4}}</td>
+        <td>{{activity.task5}}</td>
+        <td>{{activity.dueDate}}</td>        
+      </tr>
+    </tbody>
+  </table>

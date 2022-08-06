@@ -8,23 +8,21 @@ import { ActivityService } from 'src/app/services/activity.service';
 })
 export class DashboardComponent implements OnInit {
   selectedFile!: File;
+  clicked = false;
 
   constructor(private activityService: ActivityService) { }
 
   onFileSelected(event: any)
   {
-    console.log(event.target.files[0]);
     this.selectedFile = event.target.files[0];
   }
 
   onUpload()
-  {
-    const fd = new FormData();
-    fd.append('Activity', this.selectedFile, this.selectedFile.name);
-    this.activityService.uploadActivities(fd)
+  { 
+    this.activityService.uploadActivities(this.selectedFile)
     .subscribe({
       next:(response) =>{
-        console.log(response)
+        this.clicked = true;
       },
       error:(response) => {
         alert(response);
