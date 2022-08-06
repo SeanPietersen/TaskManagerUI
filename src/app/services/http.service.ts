@@ -19,7 +19,4 @@ export class HttpService {
   {
     return this.http.get<TResponse>(this.baseApiUrl+'/'+ url);
   }
-
-  
-  
 }
