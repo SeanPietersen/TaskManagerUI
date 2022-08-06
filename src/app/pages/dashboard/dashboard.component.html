@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div class="upperSection">
+        <p>Upper section</p>
+        <input type="file" (change)="onFileSelected($event)">
+        <button type="button" (click)="onUpload()">Upload File</button>
+    </div>
+    <div class="lowerSection">
+        ----------------------
+        <p>Lower section</p>
+        <div class="tasks">
+            <app-task-manager></app-task-manager>
+        </div>
+        ----------------------
+    </div>
+</div>
