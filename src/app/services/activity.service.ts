@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Activity } from '../Models/activity';
 import { HttpService } from './http.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityService {
 
-  constructor(private httpService: HttpService) { }
+  baseApiUrl: string = environment.baseApiUrl;
+
+  constructor(private httpService: HttpService,
+              private http: HttpClient) { }
 
   uploadActivities(file: File): Observable<Activity>
   {
@@ -20,5 +25,10 @@ export class ActivityService {
   getActivities(): Observable<Activity[]>
   {
     return this.httpService.get<Activity[]>('retrieve');
+  }
+
+  downloadActivities(): Observable<any>
+  {
+    return this.http.get(this.baseApiUrl+'/download', {responseType: 'blob'});
   }
 }

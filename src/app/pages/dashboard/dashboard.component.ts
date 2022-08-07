@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from 'src/app/services/activity.service';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { ActivityService } from 'src/app/services/activity.service';
 })
 export class DashboardComponent implements OnInit {
   selectedFile!: File;
-  clicked = false;
+  clicked = true;
 
   constructor(private activityService: ActivityService) { }
 
@@ -27,6 +28,16 @@ export class DashboardComponent implements OnInit {
       error:(response) => {
         alert(response);
       }
+    })
+  }
+
+  onDownload()
+  {
+    this.activityService.downloadActivities()
+    .subscribe(response => {
+      const blob = new Blob([(response)], {type: 'text/csv'});
+      FileSaver.saveAs(blob, "Activity.txt");
+
     })
   }
 
