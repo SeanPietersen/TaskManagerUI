@@ -1,61 +1,32 @@
-<table class="table align-middle mb-0 bg-white">
-    <thead class="bg-light">
-      <tr>
-        <th>Id</th>
-        <th>Description</th>
-        <th>Client</th>
-        <th>Start Date</th>
-        <th>Duration</th>
-        <th>Task 1</th>
-        <th>Task 2</th>
-        <th>Task 3</th>
-        <th>Task 4</th>
-        <th>Task 5</th>
-        <th>Due Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let activity of activities">
-        <section class="vh-100" style="background-color: #3da2c3;">
-          <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col col-lg-8 col-xl-6">
-                <div class="card rounded-3">
-                  <div class="card-body p-4">
-        
-                    <p class="mb-2"><span class="h2 me-2">{{activity.id}}{{activity.client}}</span> 
-                      <p class="text-muted pb-2">{{activity.description}}</p>
-                      <p class="text-muted pb-2">Start Date: {{activity.startDate}}</p>
-        
-                    <ul class="list-group rounded-0">
-                      <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                        {{activity.task1}}
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                        {{activity.task2}}
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                        {{activity.task3}}
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                        {{activity.task4}}
-                      </li>
-                      <li class="list-group-item border-0 d-flex align-items-center ps-0">
-                        {{activity.task5}}
-                      </li>
-                    </ul>
-        
-                    <div class="divider d-flex align-items-center my-4">
-                      <p class="text-center mx-3 mb-0">Due Date: {{activity.dueDate}}</p>
-                    </div>
-      
-        
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>     
-      </tr>
-    </tbody>
-  </table>
+<table class="table">
+  <thead class="bg-light">
+    <tr>
+      <th>Id</th>
+      <th>Client Name</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>Tasks</th>
+      <th>Due Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activity of activities">
+      <td>
+        {{activity.id}}
+      </td>
+      <td>
+        {{activity.client}}
+      </td>
+      <td>{{activity.description}}</td>
+      <td>{{activity.startDate}}</td>
+      <td>
+        <li *ngIf="activity.task1">{{activity.task1}}</li>
+        <li *ngIf="activity.task1">{{activity.task2}}</li>
+        <li *ngIf="activity.task1">{{activity.task3}}</li>
+        <li *ngIf="activity.task1">{{activity.task4}}</li>
+        <li *ngIf="activity.task1">{{activity.task5}}</li>
+      </td>
+      <td>{{activity.dueDate}}</td>
+    </tr>
+  </tbody>
+</table>

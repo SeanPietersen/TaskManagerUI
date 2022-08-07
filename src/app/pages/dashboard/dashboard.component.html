@@ -1,21 +1,14 @@
 <div class="container">
-    <div class="upperSection">
-        <p>Upper section</p>
-        <input style="display: none"
-               type="file" 
-               (change)="onFileSelected($event)"
-               #fileInput>
-        <button type="button" (click)="fileInput.click()">Choose a file</button>
-        <button type="button" (click)="onUpload()">Upload File</button>
-    </div>
+    <input class="choose" style="display: none"
+            type="file" 
+            (change)="onFileSelected($event)"
+            #fileInput>
+    <button class="choose" type="button" (click)="fileInput.click()">Choose a file</button>
+    <button class="upload" type="button" (click)="onUpload()">Upload File</button>
     <div class="lowerSection">
-        ----------------------
-        <p>Lower section</p>
         <div class="tasks" *ngIf="clicked">
             <app-task-manager></app-task-manager>
         </div>
-        ----------------------
     </div>
-    <button type="button" (click)="onDownload()">Download</button>
-
+    <button class="download" type="button" (click)="onDownload()">Download</button>
 </div>
