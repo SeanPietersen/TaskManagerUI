@@ -9,7 +9,7 @@ import * as FileSaver from 'file-saver';
 })
 export class DashboardComponent implements OnInit {
   selectedFile!: File;
-  clicked = true;
+  uploaded = false;
 
   constructor(private activityService: ActivityService) { }
 
@@ -23,7 +23,8 @@ export class DashboardComponent implements OnInit {
     this.activityService.uploadActivities(this.selectedFile)
     .subscribe({
       next:(response) =>{
-        this.clicked = true;
+        this.uploaded = true;
+          
       },
       error:(response) => {
         alert(response);

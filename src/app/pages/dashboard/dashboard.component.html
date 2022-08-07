@@ -1,12 +1,12 @@
 <div class="container">
-    <input class="choose" style="display: none"
+    <input style="display: none"
             type="file" 
             (change)="onFileSelected($event)"
             #fileInput>
     <button class="choose" type="button" (click)="fileInput.click()">Choose a file</button>
     <button class="upload" type="button" (click)="onUpload()">Upload File</button>
     <div class="lowerSection">
-        <div class="tasks" *ngIf="clicked">
+        <div class="tasks" *ngIf="uploaded">
             <app-task-manager></app-task-manager>
         </div>
     </div>
