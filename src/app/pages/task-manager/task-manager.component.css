@@ -1,0 +1,17 @@
+.table{
+    margin-top: 80px;
+    list-style: circle;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px; 
+    border: #999;
+}
+.table th {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}

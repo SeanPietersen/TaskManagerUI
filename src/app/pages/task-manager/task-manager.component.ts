@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Activity } from 'src/app/Models/activity';
+import { ActivityService } from 'src/app/services/activity.service';
 
 @Component({
   selector: 'app-task-manager',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskManagerComponent implements OnInit {
 
-  constructor() { }
+  activities: Activity[] = [];
+  constructor(private activityService: ActivityService) { }
 
   ngOnInit(): void {
+
+    this.activityService.getActivities()
+    .subscribe({
+      next: (activitiesResponse) => {
+        console.log(activitiesResponse);
+        this.activities = activitiesResponse;
+      },
+      error: (response) => {
+        alert(response);
+      }
+    })
   }
 
 }
